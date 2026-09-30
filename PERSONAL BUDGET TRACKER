@@ -3,6 +3,18 @@
 // Student: Zarmina Madadi
 // Date: September 30, 2026
 
+## 2. IPO Chart (Input - Process - Output)
+
+| Input | Processing | Output |
+|---|---|---|
+| `main_choice` (1–4) | Display the main menu and validate the user's choice using a while loop. | Main menu and invalid choice message |
+| `income_choice` (1–3) | Display the Income Menu, validate the category, and select Design, Coding, or User Documentation. | Income menu and category selection |
+| `amount` (>= 0) | Validate the income amount and add it to the correct income category. | Success message showing the amount and category |
+| `expense_choice` (1–3) | Display the Expense Menu, validate the category, and select Software, Equipment, or Workspace. | Expense menu and category selection |
+| `amount` (>= 0) | Validate the expense amount and add it to the correct expense category. | Success message showing the amount and category |
+| No additional input | Calculate total income, total expenses, and net balance. Check if the balance is positive, negative, or zero. | Financial Summary showing Total Income, Total Expenses, Net Balance, and Status |
+| `main_choice = 4` | End the program. | "Thank you for using Personal Budget Tracker. Goodbye!" |
+
 MODULE MAIN()
 
     DECLARE Real design_income = 0.0
