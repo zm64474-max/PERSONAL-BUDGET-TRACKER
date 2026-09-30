@@ -3,6 +3,16 @@
 // Student: Zarmina Madadi
 // Date: September 30, 2026
 
+## 1. Problem Description & Scope
+* **Problem:** Users need a simple way to track their income and expenses, view their financial totals, and see their current balance.
+* **Scope:**
+  * Provides a main menu for logging income, logging expenses, viewing a financial summary, and exiting the program.
+  * Provides separate menus for income and expense categories.
+  * Validates menu choices and rejects negative income or expense amounts.
+  * Keeps track of income and expenses during the program and calculates the total income, total expenses, and net balance.
+  * Displays a financial status showing whether the user is profitable, has a loss, or broke even.
+  * Terminates when the user selects the Exit option.
+
 ## 2. IPO Chart (Input - Process - Output)
 
 | Input | Processing | Output |
