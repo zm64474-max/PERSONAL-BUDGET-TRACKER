@@ -1,0 +1,225 @@
+// Project Problem 1: Personal Budget Tracker
+// Course: ITP 100
+// Student: Zarmina Madadi
+// Date: September 30, 2026
+
+MODULE MAIN()
+
+    DECLARE Real design_income = 0.0
+    DECLARE Real coding_income = 0.0
+    DECLARE Real documentation_income = 0.0
+
+    DECLARE Real software_expense = 0.0
+    DECLARE Real equipment_expense = 0.0
+    DECLARE Real workspace_expense = 0.0
+
+    DECLARE Real total_income = 0.0
+    DECLARE Real total_expenses = 0.0
+    DECLARE Real net_balance = 0.0
+
+    DECLARE Integer main_choice = 0
+    DECLARE Integer income_choice = 0
+    DECLARE Integer expense_choice = 0
+
+    DECLARE Real amount = 0.0
+    DECLARE String category_name = " "
+
+    DISPLAY "=========================================="
+    DISPLAY "          PERSONAL BUDGET TRACKER"
+    DISPLAY "=========================================="
+
+    WHILE main_choice != 4
+
+        // Main Menu
+
+        DISPLAY "--- MAIN MENU ---"
+        DISPLAY "1. Log Income"
+        DISPLAY "2. Log Expense"
+        DISPLAY "3. View Financial Summary"
+        DISPLAY "4. Exit"
+        DISPLAY "Enter your choice (1-4):"
+
+        INPUT main_choice
+
+        WHILE main_choice != 1 AND main_choice != 2 AND main_choice != 3 AND main_choice != 4
+
+            DISPLAY "Invalid. Choice must be 1, 2, 3, or 4. Try Again:"
+            INPUT main_choice
+
+        END WHILE
+
+
+        // Log Income
+
+        IF main_choice == 1 THEN
+
+            DISPLAY "--- INCOME MENU ---"
+            DISPLAY "1. Design"
+            DISPLAY "2. Coding"
+            DISPLAY "3. User Documentation"
+            DISPLAY "Enter income category:"
+
+            INPUT income_choice
+
+            WHILE income_choice != 1 AND income_choice != 2 AND income_choice != 3
+
+                DISPLAY "Invalid. Please enter 1, 2, or 3. Try Again!"
+                INPUT income_choice
+
+            END WHILE
+
+
+            IF income_choice == 1 THEN
+
+                category_name = "Design"
+
+            ELSE IF income_choice == 2 THEN
+
+                category_name = "Coding"
+
+            ELSE
+
+                category_name = "User Documentation"
+
+            END IF
+
+
+            DISPLAY "Enter income amount ($):"
+            INPUT amount
+
+            WHILE amount < 0
+
+                DISPLAY "Invalid. Please enter amount >= 0:"
+                INPUT amount
+
+            END WHILE
+
+
+            IF income_choice == 1 THEN
+
+                design_income = design_income + amount
+
+            ELSE IF income_choice == 2 THEN
+
+                coding_income = coding_income + amount
+
+            ELSE
+
+                documentation_income = documentation_income + amount
+
+            END IF
+
+            DISPLAY "Successfully added $", amount, " for ", category_name, "."
+
+
+        // Log Expense
+
+        ELSE IF main_choice == 2 THEN
+
+            DISPLAY "--- EXPENSE MENU ---"
+            DISPLAY "1. Software"
+            DISPLAY "2. Equipment"
+            DISPLAY "3. Workspace"
+            DISPLAY "Enter expense category:"
+
+            INPUT expense_choice
+
+            WHILE expense_choice != 1 AND expense_choice != 2 AND expense_choice != 3
+
+                DISPLAY "Invalid. Please enter 1, 2, or 3. Try Again!"
+                INPUT expense_choice
+
+            END WHILE
+
+
+            IF expense_choice == 1 THEN
+
+                category_name = "Software"
+
+            ELSE IF expense_choice == 2 THEN
+
+                category_name = "Equipment"
+
+            ELSE
+
+                category_name = "Workspace"
+
+            END IF
+
+
+            DISPLAY "Enter expense amount ($):"
+            INPUT amount
+
+            WHILE amount < 0
+
+                DISPLAY "Invalid. Please enter amount >= 0:"
+                INPUT amount
+
+            END WHILE
+
+
+            IF expense_choice == 1 THEN
+
+                software_expense = software_expense + amount
+
+            ELSE IF expense_choice == 2 THEN
+
+                equipment_expense = equipment_expense + amount
+
+            ELSE
+
+                workspace_expense = workspace_expense + amount
+
+            END IF
+
+            DISPLAY "Successfully added $", amount, " for ", category_name, "."
+
+
+        // Financial Summary
+
+        ELSE IF main_choice == 3 THEN
+
+            total_income = design_income + coding_income + documentation_income
+
+            total_expenses = software_expense + equipment_expense + workspace_expense
+
+            net_balance = total_income - total_expenses
+
+            DISPLAY "=========================================="
+            DISPLAY "          FINANCIAL SUMMARY"
+            DISPLAY "=========================================="
+
+            DISPLAY "Total Income:   $", total_income
+            DISPLAY "Total Expenses: $", total_expenses
+            DISPLAY "Net Balance:    $", net_balance
+
+
+            IF net_balance > 0 THEN
+
+                DISPLAY "Status: You are profitable this month!"
+
+            ELSE IF net_balance < 0 THEN
+
+                DISPLAY "Status: You have a loss this month."
+
+            ELSE
+
+                DISPLAY "Status: You broke even this month."
+
+            END IF
+
+            DISPLAY "=========================================="
+
+
+        // Exit
+
+        ELSE IF main_choice == 4 THEN
+
+            DISPLAY "Thank you for using Personal Budget Tracker. Goodbye!"
+
+        END IF
+
+    END WHILE
+
+END MODULE
+
